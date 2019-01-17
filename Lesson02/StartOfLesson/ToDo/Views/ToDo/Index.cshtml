@@ -8,6 +8,7 @@
 
 <p>
     <a asp-action="Create">Create New</a>
+    
 </p>
 <table class="table">
     <thead>
@@ -37,8 +38,8 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
-                <td>
-                    @(item.Created < DateTime.Now.AddDays(7) ? item.Created.DayOfWeek.ToString() : item.Created.ToString("mm/dd/yyyy"))
+                <td day-of-the-week todo-date="item.Created">
+                    @*@(item.Created < DateTime.Now.AddDays(7) ? item.Created.DayOfWeek.ToString() : item.Created.ToString("mm/dd/yyyy"))*@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
