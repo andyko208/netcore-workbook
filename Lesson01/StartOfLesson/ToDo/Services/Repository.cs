@@ -34,23 +34,35 @@ namespace ToDoApp.Services
         {
             // get the current todo based on id
             // overwrite each property with values from collection
-            // var todo = GetTodoById(id) 
-            // todo.Description = collection["Description"];
+            var todo = GetTodoById(id);
+            todo.Id = Int32.Parse(collection["Id"]);
+            todo.Title = collection["Title"];
+            todo.Description = collection["Description"];
+            todo.Status = collection["Status"];
         }
         
         public static void CreateTodo(IFormCollection collection)
         {
             // no need to get anything from list
             // create new object of type todo and append values from collection
-            // title = collection[title];
-            // status = collection[status];
             // add new todo to list
+            ToDo todo = new ToDo();
+            todo.Id = Int32.Parse(collection["Id"]);
+            todo.Title = collection["Title"];
+            todo.Description = collection["Description"];
+            todo.Status = status[1];
+            list.Add(todo);
         }
 
-        public static void DeleteTodo(IFormCollection collection)
+        public static void DeleteTodo(int id, IFormCollection collection) //int id could be wrong
         {
             // find todo
+            if(list[id].Id == collection["Id"] && list[id].Title == collection["Title"] && list[id].Description == collection["Description"])
+            {
+                list.Remove(list[id]);
+            }
             // delete from list (know how to delete element from list)
+            
         }
     }
 }

@@ -35,7 +35,7 @@ namespace ToDoApp.Controllers
         {
             try
             {
-                // Repository.CreateTodo() --> missing something (parameter)
+                Repository.CreateTodo(collection);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -83,7 +83,7 @@ namespace ToDoApp.Controllers
         {
             try
             {
-                // Repository.DeleteTodo -- > missing something (parameter)
+                Repository.DeleteTodo(id, collection); // parameter could be different
 
                 return RedirectToAction(nameof(Index));
             }
