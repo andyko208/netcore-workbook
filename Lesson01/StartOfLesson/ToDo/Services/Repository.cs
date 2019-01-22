@@ -57,11 +57,10 @@ namespace ToDoApp.Services
         public static void DeleteTodo(int id, IFormCollection collection) //int id could be wrong
         {
             // find todo
-            if(list[id].Id == collection["Id"] && list[id].Title == collection["Title"] && list[id].Description == collection["Description"])
-            {
-                list.Remove(list[id]);
-            }
             // delete from list (know how to delete element from list)
+            ToDo todo = GetTodoById(id);
+            list.Remove(todo);
+            
             
         }
     }
