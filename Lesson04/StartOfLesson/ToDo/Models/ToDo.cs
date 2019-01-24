@@ -7,8 +7,12 @@ namespace ToDoApp.Models
     {
         public int Id { get; set; }
 
+        [Required(ErrorMessage = "Don't be stupid, write something")]
         public string Title { get; set; }
 
+        [Required]
+        [MaxLength(140)]
+        [MinLength(1)]
         public string Description { get; set; }
 
         [UIHint("Status")]
